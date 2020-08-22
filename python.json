@@ -1,0 +1,192 @@
+{
+	"Django model":{
+		"prefix": "model",
+		"body": [
+			"class ${1:ModelName}(models.Model):",
+			"\n\tdef __str__(self):",
+			"\t\treturn self.${2:attribute}",
+			"\n\tclass Meta:",
+			"\t\tverbose_name = ('${3:Human readable model name}')",
+			"\t\tverbose_name_plural = ('${4:plural name of human readable model}')",
+			"\t\tordering = ('${5:Attributes for sorting rows}',)",
+		],
+		"description": "Snippet for django models"
+	},
+	"Django form":{
+		"prefix": "form",
+		"body": [
+			"class ${1:ModelName}Form(forms.ModelForm):",
+			"\n\tclass Meta:",
+			"\t\tmodel = ${1:ModelName}'",
+			"\t\tfields = ('${2:field1}','${3:field2}')",
+		],
+		"description": "Snippet for django forms"
+	},
+	"Django url":{
+		"prefix": "path",
+		"body": [
+			"path('${1:URL}', views.${2:ViewName}View.as_view(), name='${3:View name}'),"
+		],
+		"description": "Snippet for django urls"
+	},
+	"Django admin":{
+		"prefix": "admin",
+		"body": [
+			"@admin.register(${1:Model})",
+			"class ${1:Model}Admin(admin.ModelAdmin):",
+			"\tlist_display = ('${2:campo1}', '${3:campo2}',)",
+			"\tfields = ('${2:campo1}', '${3:campo2}',)",
+		],
+		"description": "Snippet for django admin"
+	},
+	"Serializer Class of Django Rest Framework":{
+		"prefix": "serializer",
+		"body": [
+			"class ${1:ModelName}Serializer(serializers.ModelSerializer):",
+			"\n\tclass Meta:",
+			"\t\tmodel = ${1:ModelName}",
+			"\t\tfields = (",
+			"\t\t\t'id',",
+			"\t\t\t'${2:field}'",
+			"\t\t)",
+		],
+		"description": "Snippet for serializers models"
+	},
+	"Django viewsets":{
+		"prefix": "viewset",
+		"body": [
+			"class ${1:ModelName}ViewSet(viewsets.ModelViewSet):",
+			"\tqueryset = ${1:'ModelName'}.objects.all()",
+			"\tserializer_class = ${1:'ModelName'}Serializer",
+		],
+		"description": "Snippet for viewsets"
+	},
+	"Django router":{
+		"prefix": "router",
+		"body": [
+			"router.register(r'${1:Plural name of the model in lower case}', views.${2:ModelName}ViewSet)",
+		],
+		"description": "Snippet for register router"
+	},
+	"Django model char field": {
+		"prefix": "char",
+		"body": [
+			"${1:field name} = models.CharField(",
+			"\tmax_length=${2:max length},",
+			"\tblank=${3:False},",
+			"\tnull=${4:False},",
+			"\tverbose_name=('${5:verbose name}'),",
+			"\thelp_text=('${6:Help text}')",
+			")"
+		]
+	},
+	"Django model text field": {
+		"prefix": "text",
+		"body": [
+			"${1:field name} = models.TextField(",
+			"\tmax_length=${2:max length},",
+			"\tblank=${3:False},",
+			"\tnull=${4:False},",
+			"\tverbose_name=('${5:verbose name}'),",
+			"\thelp_text=('${6:Help text}')",
+			")"
+		]
+	},
+	"Django model boolean field": {
+		"prefix": "boolean",
+		"body": [
+			"${1:field name} = models.BooleanField(",
+			"\tblank=${2:False},",
+			"\tnull=${3:False},",
+			"\tverbose_name=('${4:verbose name}'),",
+			"\thelp_text=('${5:Help text}'),",
+			"\tdefault=False,",
+			")"
+		]
+	},
+	"Django model auto now add date time field": {
+		"prefix": "dateTimeAdd",
+		"body": [
+			"${1:field name} = models.DateTimeField(",
+			"\tauto_now_add=True,",
+			"\tblank=${2:False},",
+			"\tnull=${3:False},",
+			"\tverbose_name=('${4:verbose name}'),",
+			"\thelp_text=('${5:Help text}')",
+			")"
+		]
+	},
+	"Django model auto now date time field": {
+		"prefix": "dateTimeNow",
+		"body": [
+			"${1:field name} = models.DateTimeField(",
+			"\tauto_now=True,",
+			"\tblank=${2:False},",
+			"\tnull=${3:False},",
+			"\tverbose_name=('${4:verbose name}'),",
+			"\thelp_text=('${5:Help text}')",
+			")"
+		]
+	},
+	"Django model positive integer field": {
+		"prefix": "positiveInt",
+		"body": [
+			"${1:field name} = models.PositiveIntegerField(",
+			"\tblank=${2:False},",
+			"\tnull=${3:False},",
+			"\tverbose_name=('${4:verbose name}'),",
+			"\thelp_text=('${5:Help text}')",
+			")"
+		]
+	},
+	"Django model decimal field": {
+		"prefix": "decimal",
+		"body": [
+			"${1:field name} = models.DecimalField(",
+			"\tblank=${2:False},",
+			"\tnull=${3:False},",
+			"\tmax_digits=${4:10},",
+			"\tdecimal_places=${5:2},",
+			"\tverbose_name=('${6:verbose name}'),",
+			"\thelp_text=('${7:Help text}')",
+			")"
+		]
+	},
+	"Django model positive small integer field": {
+		"prefix": "positiveSmallInt",
+		"body": [
+			"${1:field name} = models.PositiveSmallIntegerField(",
+			"\tblank=${2:False},",
+			"\tnull=${3:False},",
+			"\tverbose_name=('${4:verbose name}'),",
+			"\thelp_text=('${5:Help text}')",
+			")"
+		]
+	},
+	"Django model one to one field": {
+		"prefix": "oneToOne",
+		"body": [
+			"${1:field name} = models.OneToOneField(",
+			"\tblank=${2:False},",
+			"\tnull=${3:False},",
+			"\tto=${4:Model to relate},",
+			"\ton_delete=models.${5|DO_NOTHING,CASCADE,PROTECT,RESTRICT,SET_NULL,SET_DEFAULT|},",
+			"\tverbose_name=('${6:verbose name}'),",
+			"\thelp_text=('${7:Help text}')",
+			")"
+		]
+	},
+	"Django model Foreign Key": {
+		"prefix": "foreignKey",
+		"body": [
+			"${1:field name} = models.ForeignKey(",
+			"\tblank=${2:False},",
+			"\tnull=${3:False},",
+			"\tto=${4:Model to relate},",
+			"\ton_delete=models.${5|DO_NOTHING,CASCADE,PROTECT,RESTRICT,SET_NULL,SET_DEFAULT|},",
+			"\tverbose_name=('${6:verbose name}'),",
+			"\thelp_text=('${7:Help text}')",
+			")"
+		]
+	}
+}
