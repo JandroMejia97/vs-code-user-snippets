@@ -1,0 +1,120 @@
+{
+	"Django Inline Translation": {
+		"prefix": "transInline",
+		"body": [
+			"{% trans '${1:Text to translate}' %}"
+		]
+	},
+	"Django Load": {
+		"prefix": "load",
+		"body": [
+			"{% load ${1:Package name} %}"
+		]
+	},
+	"Django Import Static Files": {
+		"prefix": "static",
+		"body": [
+			"{% static '${1:Static File Path}' %}"
+		]
+	},
+	"Django URL": {
+		"prefix": "url",
+		"body": [
+			"{% url '${1:URL name}' %}"
+		]
+	},
+	"Django Template Extend": {
+		"prefix": "extends",
+		"body": [
+			"{% extends '${1:Template Path}' %}"
+		]
+	},
+	"Django Template Include": {
+		"prefix": "include",
+		"body": [
+			"{% include '${1:Template Path}' %}"
+		]
+	},
+	"Django Block": {
+		"prefix": "block",
+		"body": [
+			"{% block ${1:blockName} %}",
+			"\t${2:Block content}",
+			"{% endblock %}"
+		]
+	},
+	"Django End Block": {
+		"prefix": "endblock",
+		"body": [
+			"{% endblock %}"
+		]
+	},
+	"Django Inline Block": {
+		"prefix": "blockInline",
+		"body": [
+			"{% block ${1:blockName} %}${2:Block content}{% endblock %}"
+		]
+	},
+	"Django Block Translation": {
+		"prefix": "trans",
+		"body": [
+			"{% blocktrans %}",
+			"\t${1:Text to translate}",
+			"{% endblocktrans %}"
+		]
+	},
+	"Django End Block Translation": {
+		"prefix": "endblocktrans",
+		"body": [
+			"{% endblocktrans %}"
+		]
+	},
+	"Django For": {
+		"prefix": "for",
+		"body": [
+			"{% for ${1:object} in ${2:object list} %}",
+			"\t${3:for sentences}",
+			"{% endfor %}"
+		]
+	},
+	"Django End For": {
+		"prefix": "endfor",
+		"body": [
+			"{% endfor %}"
+		]
+	},
+	"Django For-Empty": {
+		"prefix": "forEmpty",
+		"body": [
+			"{% for ${1:object} in ${2:object list} %}",
+			"\t${3:for sentences}",
+  			"{% empty %}",
+			"\t${4:empty sentences}",
+			"{% endfor %}"
+		]
+	},
+	"Django If": {
+		"prefix": "if",
+		"body": [
+			"{% if ${1:condition} %}",
+			"\t${2:if sentences}",
+			"{% endif %}"
+		]
+	},
+	"Django End If": {
+		"prefix": "if",
+		"body": [
+			"{% endif %}"
+		]
+	},
+	"Django If-Else": {
+		"prefix": "ifElse",
+		"body": [
+			"{% if ${1:condition} %}",
+			"\t${2:if sentences}",
+			"{% else %}",
+			"\t${3:else sentences}",
+			"{% endif %}"
+		]
+	}
+}
